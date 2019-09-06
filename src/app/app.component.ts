@@ -1,3 +1,22 @@
+// import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css'],
+//   encapsulation: ViewEncapsulation.None
+// })
+// export class AppComponent
+// { 
+//   constructor()
+//   {
+    
+//   }
+  
+     
+  
+        
+// }
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -31,7 +50,7 @@ export class AppComponent implements OnInit
     this.showDetails=false;
     this.buyButton=false;
   }
-  name="vidha paradkar";
+  name="simran sehrawat";
   ngOnInit()
   {
     this.tshirts=this.getTShirts();
@@ -45,8 +64,8 @@ export class AppComponent implements OnInit
         "productCode": "GDN-0011",
         "description": "this is a female black tshirt",
         "price": 19.95,
-        "backimage":"assets/myntra/black1_B.jpg",
-        "imageUrl": "assets/myntra/black1_f.jpg",
+        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/black1_B.jpg?raw=true",
+        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/black1_f.jpg?raw=true",
         "quantity":40,
         "imggsrc":"",
         "releaseDate": "",
@@ -59,9 +78,9 @@ export class AppComponent implements OnInit
         "description": "this is a blue female shirt",
         "price": 32.99,
         "quantity":80,
-        "backimage":"assets/myntra/blue1_B.jpg",
+        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra//blue1_B.jpg?raw=true",
         "imggsrc":"",
-        "imageUrl": "assets/myntra/blue1_F.jpg",
+        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/blue1_F.jpg?raw=true",
         "releaseDate": "",
         "size":"medium"
       },
@@ -73,9 +92,9 @@ export class AppComponent implements OnInit
         "price": 8.9,
         "starRating": 4.8,
         "quantity":23,
-        "backimage":"assets/myntra/grey1_B.jpg",
+        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/grey1_B.jpg?raw=true",
         "imggsrc":"",
-        "imageUrl": "assets/myntra/grey1_F.jpg",
+        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/grey1_F.jpg?raw=true",
         "releaseDate": "",
         "size":"medium"
       },
@@ -86,9 +105,9 @@ export class AppComponent implements OnInit
         "description": "this is a white shirt female ",
         "price": 11.55,
         "quantity":253,
-        "backimage":"assets/myntra/white1_B.jpg",
+        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/white1_B.jpg?raw=true",
         "imggsrc":"",
-        "imageUrl": "assets/myntra/white1_F.jpg",
+        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/white1_F.jpg?raw=true",
         "releaseDate": "",
         "size":"medium"
       },
@@ -99,9 +118,9 @@ export class AppComponent implements OnInit
         "description": "this is a yellow shirt female",
         "price": 35.95,
         "quantity":66,
-        "backimage":"assets/myntra/yellow1_B.jpg",
+        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/yellow1_B.jpg?raw=true",
         "imggsrc":"",
-        "imageUrl": "assets/myntra/yellow1_F.jpg",
+        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/yellow1_F.jpg?raw=true",
         "releaseDate": "",
         "size":"medium"
       }
