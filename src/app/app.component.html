@@ -1,129 +1,46 @@
-// import { Component, OnInit,ViewEncapsulation } from '@angular/core';
+<div class="container">
 
-// @Component({
-//   selector: 'app-root',
-//   templateUrl: './app.component.html',
-//   styleUrls: ['./app.component.css'],
-//   encapsulation: ViewEncapsulation.None
-// })
-// export class AppComponent
-// { 
-//   constructor()
-//   {
-    
-//   }
-  
-     
-  
-        
-// }
-import { Component, OnInit } from '@angular/core';
+  <div class="page-header">
+    <h1 class="text-danger text-center">Simran T-Shirt App</h1>
+  </div>
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit
-{
-  showDetails=false;
-  buyButton=false;
-  tshirts=[];
-  tshirtdetails:any;
+  <hr />
+  <br />
 
-  addtocart(t)
-  {
-    this.tshirtdetails=t;
-    this.showDetails=true;
-    this.buyButton=true;
+  <div class="row">
+    <div class="col-md-7">
+      <div *ngFor="let t of tshirts" class="card mb-3" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img (mouseenter)='t.imggsrc = t.backimage' (mouseleave)='t.imggsrc = t.imageUrl' [src]="t.imggsrc || t.imageUrl"
+              class="card-img" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{t.productName}}</h5>
+              <p class="card-text">{{t.description}}</p>
+              <div class="card-text alert alert-success" role="alert">
+                Price : {{t.price}}
+              </div>
 
-  }
-  cancel(d)
-  {
-    this.showDetails=false;
-    this.buyButton=false;
-  }
-  
-  update(d):void
-  {
-    console.log(d.productId);
-    this.showDetails=false;
-    this.buyButton=false;
-  }
-  name="simran sehrawat";
-  ngOnInit()
-  {
-    this.tshirts=this.getTShirts();
-    console.log(this.tshirts);
-  }
-  getTShirts() {
-    return  [
-      {
-        "productId": 1,
-        "productName": "black shirt female",
-        "productCode": "GDN-0011",
-        "description": "this is a female black tshirt",
-        "price": 19.95,
-        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/black1_B.jpg?raw=true",
-        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/black1_f.jpg?raw=true",
-        "quantity":40,
-        "imggsrc":"",
-        "releaseDate": "",
-        "size":"medium"
-      },
-      {
-        "productId": 2,
-        "productName": "blue shirt female",
-        "productCode": "GDN-0023",
-        "description": "this is a blue female shirt",
-        "price": 32.99,
-        "quantity":80,
-        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra//blue1_B.jpg?raw=true",
-        "imggsrc":"",
-        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/blue1_F.jpg?raw=true",
-        "releaseDate": "",
-        "size":"medium"
-      },
-      {
-        "productId": 5,
-        "productName": "grey shirt female",
-        "productCode": "TBX-0048",
-        "description": "this is a grey shirt female",
-        "price": 8.9,
-        "starRating": 4.8,
-        "quantity":23,
-        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/grey1_B.jpg?raw=true",
-        "imggsrc":"",
-        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/grey1_F.jpg?raw=true",
-        "releaseDate": "",
-        "size":"medium"
-      },
-      {
-        "productId": 8,
-        "productName": "whhite shirt female",
-        "productCode": "TBX-0022",
-        "description": "this is a white shirt female ",
-        "price": 11.55,
-        "quantity":253,
-        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/white1_B.jpg?raw=true",
-        "imggsrc":"",
-        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/white1_F.jpg?raw=true",
-        "releaseDate": "",
-        "size":"medium"
-      },
-      {
-        "productId": 10,
-        "productName": "yellow shirt female",
-        "productCode": "GMG-0042",
-        "description": "this is a yellow shirt female",
-        "price": 35.95,
-        "quantity":66,
-        "backimage":"https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/yellow1_B.jpg?raw=true",
-        "imggsrc":"",
-        "imageUrl": "https://github.com/Simranseh/T-Shirt-App/blob/master/src/assets/myntra/yellow1_F.jpg?raw=true",
-        "releaseDate": "",
-        "size":"medium"
-      }
-    ]
-  }
-}
+              <div class="row">
+                <div class="col-md-7">
+                  <button [disabled]="buyButton" class="btn btn-danger" (click)='addtocart(t)'>Add to Cart</button>
+                </div>
+                <div class="col-md-5">
+                  Quantity :<span [style.color]="t.quantity < 25 ? 'red' : 'green'">{{t.quantity}}</span>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <app-child *ngIf="showDetails" (buyevent)='update($event)' (cancelevent)='cancel($event)'
+        [tshirt]='tshirtdetails'></app-child>
+    </div>
+  </div>
+</div>
